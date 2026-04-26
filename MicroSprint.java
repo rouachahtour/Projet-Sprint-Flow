@@ -40,6 +40,14 @@ public class MicroSprint {
         return false;
     }
 
+    // ✅ afficherDetails 
+    public void afficherDetails() {
+        System.out.println("🔹 Micro-Sprint #" + id + " : " + titre);
+        System.out.println("   📝 Description : " + description);
+        System.out.println("   ⏱  Durée       : " + dureeDays + " jours");
+        System.out.println("   📊 Statut      : " + statut);
+        System.out.println("   ✔  Validé      : " + (estValide ? "Oui" : "Non"));
+    }
 
     public void demarrer() {
         this.statut = "EN_COURS";
