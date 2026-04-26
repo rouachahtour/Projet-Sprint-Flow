@@ -34,7 +34,20 @@ public class Mission {
         this.competenceRequise = competenceRequise;
     }
 
-    
+    // ✅ swiperDroite 
+    public void swiperDroite(Freelance freelance) {
+        System.out.println("✅ " + freelance.getNom()
+            + " a swipe DROITE sur : " + this.titre
+            + " (" + this.budget + " DT)");
+    }
+
+    // ✅ swiperGauche 
+    public void swiperGauche(Freelance freelance) {
+        System.out.println("❌ " + freelance.getNom()
+            + " a swipe GAUCHE sur : " + this.titre);
+    }
+
+   
 
     public void ajouterMicroSprint(MicroSprint ms) { microSprints.add(ms); }
     public void ajouterSoumission(Soumission s) { soumissions.add(s); }
