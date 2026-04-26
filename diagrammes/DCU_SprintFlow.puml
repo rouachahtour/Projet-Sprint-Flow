@@ -1,0 +1,35 @@
+@startuml DCU_SprintFlow
+left to right direction
+skinparam packageStyle rectangle
+
+actor Freelance
+actor Entreprise
+actor Admin
+
+rectangle "SprintFlow" {
+    usecase "S'inscrire / Se connecter"     as UC1
+    usecase "Publier une Mission"            as UC2
+    usecase "Parcourir les Missions"         as UC3
+    usecase "Soumettre une Candidature"      as UC4
+    usecase "Gérer les Soumissions"          as UC5
+    usecase "Suivre les Micro-Sprints"       as UC6
+    usecase "Laisser une Évaluation"         as UC7
+    usecase "Gérer les Utilisateurs"         as UC8
+    usecase "Valider / Suspendre Missions"   as UC9
+}
+
+Freelance  --> UC1
+Freelance  --> UC3
+Freelance  --> UC4
+Freelance  --> UC6
+Freelance  --> UC7
+
+Entreprise --> UC1
+Entreprise --> UC2
+Entreprise --> UC5
+Entreprise --> UC6
+Entreprise --> UC7
+
+Admin      --> UC8
+Admin      --> UC9
+@enduml

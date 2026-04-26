@@ -1,0 +1,34 @@
+@startuml DS_SprintFlow
+actor Freelance
+participant "Système\nSprintFlow" as Sys
+actor Entreprise
+
+== Publication d'une Mission ==
+Entreprise -> Sys : publierMission(titre, budget)
+Sys -> Sys : créer Mission (statut=OUVERTE)
+Sys --> Entreprise : Mission créée ✓
+
+== Soumission d'un Freelance ==
+Freelance -> Sys : parcourirMissions()
+Sys --> Freelance : liste des missions ouvertes
+Freelance -> Sys : soumettreCandidature(missionId, montant, lettre)
+Sys -> Sys : créer Soumission (statut=EN_ATTENTE)
+Sys --> Freelance : Soumission enregistrée ✓
+
+== Gestion de la Soumission ==
+Entreprise -> Sys : consulterSoumissions(missionId)
+Sys --> Entreprise : liste des soumissions
+Entreprise -> Sys : accepterSoumission(soumissionId)
+Sys -> Sys : Soumission.statut = ACCEPTEE
+Sys -> Sys : Mission.statut    = EN_COURS
+Sys --> Entreprise : Soumission acceptée ✓
+Sys --> Freelance  : Notification : candidature acceptée
+
+== Suivi des Micro-Sprints ==
+Freelance -> Sys : demarrerSprint(sprintId)
+Sys -> Sys : MicroSprint.statut = EN_COURS
+Sys --> Freelance : Sprint démarré ✓
+Freelance -> Sys : terminerSprint(sprintId)
+Sys -> Sys : MicroSprint.statut = TERMINE
+Sys --> Freelance : Sprint terminé ✓
+@enduml
