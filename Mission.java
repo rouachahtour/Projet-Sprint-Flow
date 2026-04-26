@@ -47,7 +47,28 @@ public class Mission {
             + " a swipe GAUCHE sur : " + this.titre);
     }
 
-   
+    // ✅ filtrerParCompetence 
+    public static List<Mission> filtrerParCompetence(List<Mission> missions, String competence) {
+        List<Mission> resultat = new ArrayList<>();
+        for (Mission m : missions) {
+            if (m.getCompetenceRequise() != null &&
+                m.getCompetenceRequise().equalsIgnoreCase(competence)) {
+                resultat.add(m);
+            }
+        }
+        System.out.println("🔍 " + resultat.size()
+            + " mission(s) trouvee(s) pour : " + competence);
+        return resultat;
+    }
+
+    // ✅ afficherDetails 
+    public void afficherDetails() {
+        System.out.println("📌 Mission #" + id + " : " + titre);
+        System.out.println("   📝 Description : " + description);
+        System.out.println("   💼 Competence  : " + competenceRequise);
+        System.out.println("   💰 Budget      : " + budget + " DT");
+        System.out.println("   📊 Statut      : " + statut);
+    }
 
     public void ajouterMicroSprint(MicroSprint ms) { microSprints.add(ms); }
     public void ajouterSoumission(Soumission s) { soumissions.add(s); }
