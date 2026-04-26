@@ -45,6 +45,26 @@ public class Soumission {
     }
 
     
+    public void noterSoumission(int note, String commentaire) {
+        if (note >= 1 && note <= 5) {
+            this.note = note;
+            this.commentaire = commentaire;
+            System.out.println("⭐ Note attribuee a " + freelance.getNom()
+                + " : " + note + "/5");
+            System.out.println("   💬 Commentaire : " + commentaire);
+        } else {
+            System.out.println("❌ Note invalide ! Doit etre entre 1 et 5");
+        }
+    }
+
+    public void afficherResultat() {
+        System.out.println("📊 Resultat Soumission #" + id + " :");
+        System.out.println("   👤 Freelance : " + freelance.getNom());
+        System.out.println("   📋 Mission   : " + mission.getTitre());
+        System.out.println("   📌 Statut    : " + statut);
+        System.out.println("   ⭐ Note      : " + (note > 0 ? note + "/5" : "Non notee"));
+        System.out.println("   💬 Commentaire : " + (commentaire.isEmpty() ? "Aucun" : commentaire));
+    }
 
     public void accepter() {
         this.statut = "ACCEPTEE";
