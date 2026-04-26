@@ -27,7 +27,19 @@ public class MicroSprint {
             + " (" + dureeDays + " jours)");
     }
 
-    
+    // ✅ validerMission 
+    public boolean validerMission() {
+        if (titre != null && !titre.isEmpty()
+            && description != null && !description.isEmpty()
+            && dureeDays > 0) {
+            this.estValide = true;
+            System.out.println("✅ Micro-Sprint valide : " + titre);
+            return true;
+        }
+        System.out.println("❌ Micro-Sprint invalide : informations manquantes");
+        return false;
+    }
+
 
     public void demarrer() {
         this.statut = "EN_COURS";
