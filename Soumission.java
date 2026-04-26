@@ -24,7 +24,28 @@ public class Soumission {
         this.tempsRestantHeures = 48;
     }
 
+    
+    public void soumettre() {
+        if (tempsRestantHeures > 0) {
+            this.statut = "EN_ATTENTE";
+            System.out.println("📤 Solution soumise par " + freelance.getNom()
+                + " pour : " + mission.getTitre());
+            System.out.println("   💰 Montant propose : " + montantPropose + " DT");
+            System.out.println("   ⏰ Temps restant   : " + tempsRestantHeures + "h");
+        } else {
+            System.out.println("❌ Deadline depassee ! Soumission bloquee.");
+        }
+    }
+
    
+    public int calculerTempsRestant() {
+        System.out.println("⏱  Temps restant pour soumission #" + id
+            + " : " + tempsRestantHeures + "h");
+        return tempsRestantHeures;
+    }
+
+    
+
     public void accepter() {
         this.statut = "ACCEPTEE";
         System.out.println("✅ Soumission #" + id + " ACCEPTEE !");
