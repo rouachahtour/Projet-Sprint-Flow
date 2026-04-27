@@ -1,0 +1,63 @@
+@startuml DC_SprintFlow
+skinparam classAttributeIconSize 0
+
+abstract class Utilisateur {
+    # id : int
+    # nom : String
+    # email : String
+    # motDePasse : String
+    + getRole() : String
+}
+
+class Freelance {
+    - competences : String
+    - tarifJournalier : double
+    + ajouterSoumission(s : Soumission)
+}
+
+class Entreprise {
+    - secteur : String
+    + publierMission(m : Mission)
+}
+
+class Admin {
+    - niveauAcces : String
+    + suspendreUtilisateur(u : Utilisateur)
+    + validerMission(m : Mission)
+}
+
+class Mission {
+    - id : int
+    - titre : String
+    - budget : double
+    - statut : String
+    + ajouterMicroSprint(ms : MicroSprint)
+    + ajouterSoumission(s : Soumission)
+}
+
+class MicroSprint {
+    - id : int
+    - titre : String
+    - dureeDays : int
+    - statut : String
+    + demarrer()
+    + terminer()
+}
+
+class Soumission {
+    - id : int
+    - montantPropose : double
+    - statut : String
+    + accepter()
+    + refuser()
+}
+
+Utilisateur <|-- Freelance
+Utilisateur <|-- Entreprise
+Utilisateur <|-- Admin
+
+Entreprise "1" --> "0..*" Mission       : publie
+Mission    "1" --> "1..*" MicroSprint   : contient
+Mission    "1" --> "0..*" Soumission    : reçoit
+Freelance  "1" --> "0..*" Soumission    : soumet
+@enduml
