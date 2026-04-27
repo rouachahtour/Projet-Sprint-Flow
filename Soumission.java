@@ -40,7 +40,19 @@ public class Soumission {
         }
     }
 
-
+    // soumettreSiDelaiValide V2 — Laith
+    public void soumettreSiDelaiValide() {
+        if (tempsRestantHeures <= 0) {
+            System.out.println("❌ Deadline depassee ! Soumission impossible.");
+            this.statut = "EXPIREE";
+        } else if (tempsRestantHeures <= 6) {
+            System.out.println("⚠️  Attention ! Il reste seulement "
+                + tempsRestantHeures + "h !");
+            soumettre();
+        } else {
+            soumettre();
+        }
+    }
 
     // calculerTempsRestant — Laith
     public int calculerTempsRestant() {
