@@ -41,7 +41,16 @@ public class Entreprise extends Utilisateur {
         }
     }
 
+    // notifierNouvellesSoumission V2 — Ella
+    public void notifierNouvellesSoumission(Mission m) {
+        System.out.println("🔔 Notification pour " + nom + " :");
+        System.out.println("   Nouvelle soumission recue pour : "
+            + m.getTitre());
+        System.out.println("   Total soumissions : "
+            + m.getSoumissions().size());
+    }
 
+ 
 
     // afficherMissionsPubliees — Ella
     public void afficherMissionsPubliees() {
