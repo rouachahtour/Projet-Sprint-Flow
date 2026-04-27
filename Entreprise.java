@@ -7,25 +7,43 @@ public class Entreprise extends Utilisateur {
     private String secteur;
     private List<Mission> missions;
 
-    public Entreprise(int id, String nom, String email, String motDePasse, String secteur) {
+    public Entreprise(int id, String nom, String email,
+                      String motDePasse, String secteur) {
         super(id, nom, email, motDePasse);
         this.secteur = secteur;
         this.missions = new ArrayList<>();
     }
 
-    // ✅ publierMission — Ella
+    // publierMission — Ella
     public void publierMission(Mission m) {
         missions.add(m);
-        System.out.println("📢 Mission publiee par " + nom + " : " + m.getTitre());
+        System.out.println("📢 Mission publiee par " + nom
+            + " : " + m.getTitre());
     }
 
-    // ✅ fermerMission — Ella
+    // fermerMission — Ella
     public void fermerMission(Mission m) {
         m.setStatut("FERMEE");
         System.out.println("🔒 Mission fermee : " + m.getTitre());
     }
 
-    // ✅ afficherMissionsPubliees — Ella
+    //  modifierMission V2 — Ella
+    public void modifierMission(Mission m, String nouveauTitre,
+                                 double nouveauBudget) {
+        if (m.getSoumissions().isEmpty()) {
+            m.setTitre(nouveauTitre);
+            m.setBudget(nouveauBudget);
+            System.out.println("✏️  Mission modifiee : " + nouveauTitre
+                + " | " + nouveauBudget + " DT");
+        } else {
+            System.out.println("❌ Modification impossible : "
+                + "soumissions deja recues !");
+        }
+    }
+
+
+
+    // afficherMissionsPubliees — Ella
     public void afficherMissionsPubliees() {
         System.out.println("📋 Missions publiees par " + nom + " :");
         if (missions.isEmpty()) {
