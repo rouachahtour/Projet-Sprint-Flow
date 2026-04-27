@@ -41,7 +41,7 @@ public class Entreprise extends Utilisateur {
         }
     }
 
-    // notifierNouvellesSoumission V2 — Ella
+    //  notifierNouvellesSoumission V2 — Ella
     public void notifierNouvellesSoumission(Mission m) {
         System.out.println("🔔 Notification pour " + nom + " :");
         System.out.println("   Nouvelle soumission recue pour : "
@@ -50,7 +50,15 @@ public class Entreprise extends Utilisateur {
             + m.getSoumissions().size());
     }
 
- 
+    //  afficherStatsMissions V2 — Ella
+    public void afficherStatsMissions() {
+        System.out.println("📊 Stats missions " + nom + " :");
+        for (Mission m : missions) {
+            System.out.println("   - " + m.getTitre()
+                + " -> " + m.getSoumissions().size()
+                + " soumission(s) | Statut : " + m.getStatut());
+        }
+    }
 
     // afficherMissionsPubliees — Ella
     public void afficherMissionsPubliees() {
