@@ -33,7 +33,17 @@ public class Freelance extends Utilisateur {
             + " -> Mission ignoree");
     }
 
-
+    // dejaSauvegardee V2 — Roua
+    public boolean dejaSauvegardee(Mission mission) {
+        for (Mission m : missionsSauvegardees) {
+            if (m.getId() == mission.getId()) {
+                System.out.println("⚠️  Mission deja sauvegardee : "
+                    + mission.getTitre());
+                return true;
+            }
+        }
+        return false;
+    }
 
     //  swiperDroiteV2 — Roua (avec verif doublon)
     public void swiperDroiteV2(Mission mission) {
