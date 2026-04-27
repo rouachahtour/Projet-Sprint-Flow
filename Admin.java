@@ -106,7 +106,16 @@ public class Admin extends Utilisateur {
             + soumissions.size());
         System.out.println("   💰 Revenus du jour   : " + revenus + " DT");
     }
-
+  // calculerRevenus V2 — Tasnim
+    public double calculerRevenus(List<Mission> missions) {
+        double total = missions.stream()
+            .filter(m -> m.getStatut().equals("EN_COURS")
+                   || m.getStatut().equals("TERMINEE"))
+            .mapToDouble(Mission::getBudget).sum();
+        System.out.println("💰 Revenus totaux Sprint-Flow : "
+            + total + " DT");
+        return total;
+    }
   
 
     
