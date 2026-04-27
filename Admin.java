@@ -87,6 +87,27 @@ public class Admin extends Utilisateur {
             }
         }
     }
+    // genererRapportJournalier V2 — Tasnim
+    public void genererRapportJournalier(List<Utilisateur> users,
+            List<Mission> missions, List<Soumission> soumissions) {
+        double revenus = missions.stream()
+            .filter(m -> m.getStatut().equals("EN_COURS")
+                   || m.getStatut().equals("TERMINEE"))
+            .mapToDouble(Mission::getBudget).sum();
+
+        System.out.println("📄 Rapport Journalier Sprint-Flow :");
+        System.out.println("   📅 Date              : 2026-04-23");
+        System.out.println("   👥 Utilisateurs      : " + users.size());
+        System.out.println("   📋 Missions actives  : "
+            + missions.stream()
+                .filter(m -> m.getStatut().equals("OUVERTE"))
+                .count());
+        System.out.println("   📤 Soumissions       : "
+            + soumissions.size());
+        System.out.println("   💰 Revenus du jour   : " + revenus + " DT");
+    }
+
+  
 
     
 
