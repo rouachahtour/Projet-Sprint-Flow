@@ -56,7 +56,16 @@ public class Freelance extends Utilisateur {
         }
     }
 
-
+    //  afficherHistoriqueSwipes V2 — Roua
+    public void afficherHistoriqueSwipes() {
+        System.out.println("📜 Historique swipes de " + getNom() + " :");
+        System.out.println("   ✅ Swipes DROITE : "
+            + missionsSauvegardees.size() + " missions");
+        for (Mission m : missionsSauvegardees) {
+            System.out.println("      -> " + m.getTitre()
+                + " | " + m.getBudget() + " DT");
+        }
+    }
 
     //  voirMissionsSauvegardees — Roua
     public void voirMissionsSauvegardees() {
