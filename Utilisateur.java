@@ -15,23 +15,25 @@ public abstract class Utilisateur {
         this.estActif = true;
     }
 
-    // ✅ sInscrire — Roua
+    //  sInscrire — Achrif
     public void sInscrire() {
         System.out.println("✅ Inscription reussie : " + nom + " (" + email + ")");
         System.out.println("   Role : " + getRole());
     }
 
-    // ✅ seConnecter — Roua
-    public boolean seConnecter(String email, String mdp) {
-        if (this.email.equals(email) && this.motDePasse.equals(mdp)) {
-            System.out.println("🔓 Connexion reussie : " + nom + " [" + getRole() + "]");
+    //  validerEmail V2 — Achrif
+    public boolean validerEmail(String email) {
+        if (email != null && email.contains("@") && email.contains(".")) {
+            System.out.println("✅ Email valide : " + email);
             return true;
         }
-        System.out.println("❌ Erreur : email ou mot de passe incorrect");
+        System.out.println("❌ Email invalide : " + email);
         return false;
     }
 
-    // ✅ seDeconnecter — Roua
+   
+
+    //  seDeconnecter — Achrif
     public void seDeconnecter() {
         System.out.println("👋 " + nom + " s'est deconnecte");
     }
