@@ -31,7 +31,17 @@ public abstract class Utilisateur {
         return false;
     }
 
-   
+    // validerMotDePasse V2 — Achrif
+    public boolean validerMotDePasse(String mdp) {
+        if (mdp != null && mdp.length() >= 8) {
+            System.out.println("✅ Mot de passe valide");
+            return true;
+        }
+        System.out.println("❌ Mot de passe trop court (minimum 8 caracteres)");
+        return false;
+    }
+
+
 
     //  seDeconnecter — Achrif
     public void seDeconnecter() {
