@@ -42,7 +42,19 @@ public abstract class Utilisateur {
     }
 
 
-
+    //  seConnecterV2 — Achrif (avec verif estActif)
+    public boolean seConnecterV2(String email, String mdp) {
+        if (!estActif) {
+            System.out.println("🚫 Compte bloque ! Contactez l'admin.");
+            return false;
+        }
+        if (this.email.equals(email) && this.motDePasse.equals(mdp)) {
+            System.out.println("🔓 Connexion reussie : " + nom + " [" + getRole() + "]");
+            return true;
+        }
+        System.out.println("❌ Email ou mot de passe incorrect");
+        return false;
+    }
     //  seDeconnecter — Achrif
     public void seDeconnecter() {
         System.out.println("👋 " + nom + " s'est deconnecte");
