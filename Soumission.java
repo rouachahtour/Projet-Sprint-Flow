@@ -90,7 +90,16 @@ public class Soumission {
         return moyenne;
     }
 
-
+    //  afficherHistoriqueEvaluations V2 — Laith
+    public static void afficherHistoriqueEvaluations(
+            List<Soumission> soumissions, String nomFreelance) {
+        System.out.println("📜 Historique evaluations de " + nomFreelance + " :");
+        for (Soumission s : soumissions) {
+            System.out.println("   - " + s.getMission().getTitre()
+                + " | Note: " + (s.getNote() > 0 ? s.getNote() + "/5" : "Non notee")
+                + " | Statut: " + s.getStatut());
+        }
+    }
 
     // afficherResultat — Laith
     public void afficherResultat() {
